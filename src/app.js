@@ -17,7 +17,7 @@ MongoClient.connect(url,(err,client)=>{
     // })
 })
 const id=new ObjectID()
-console.log(id)
+console.log(id.)
 
 
 const path=require('path')
@@ -27,6 +27,7 @@ const sataticPath=path.join(__dirname,"../public")
 const hbsPath=path.join(__dirname,"../templates/views")
 const hbsPatpath=path.join(__dirname,"../templates/partials")
 const hbs=require('hbs')
+const { rejects } = require('assert')
 app.set('view engine','hbs')
 app.set('views',hbsPath)
 hbs.registerPartials(hbsPatpath)
@@ -47,4 +48,22 @@ app.get('/brother',(req,res)=>{
 
 app.listen(3000,()=>{
     console.log('server is on')
+})
+
+
+
+const doPromise=new Promise(data,(resolve,reject)=>{
+    const data=data
+    setTimeout(() => {
+        resolve(data)
+        resolve('vinod')
+        reject('erroeeeeeeeeeeee')
+
+    }, 2000);
+})
+
+doPromise('dfgsfgsg').then((result)=>{
+    console.log(result)
+}).catch((err)=>{
+    console.log(err)
 })
